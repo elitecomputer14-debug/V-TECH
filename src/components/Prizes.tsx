@@ -1,6 +1,6 @@
 import { LEVELS } from "../data/prizes";
 import CopyButton from "./CopyButton";
-import { CheckIcon, LockIcon, SparkIcon, TrophyIcon } from "./icons";
+import { CheckIcon, LockIcon, SparkIcon, TrophyIcon, WhatsAppIcon } from "./icons";
 
 /* ---------------- سلّم المستويات (جنب اللعبة) ---------------- */
 export function PrizeLadder({
@@ -145,6 +145,17 @@ export function CouponsSection({ coupons }: { coupons: Record<number, string> })
                       {code}
                     </div>
                     <CopyButton text={code} label="انسخ" className="px-3 py-1.5 text-xs" />
+                    <a
+                      href={`https://wa.me/?text=${encodeURIComponent(
+                        `🎁 كسبت "${lv.prizeTitle}" من لعبة V-TECH! جرّب حظك أنت كمان واكسب كوبونات من المحل 🎮\n${window.location.href.split("#")[0]}`
+                      )}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      title="شارِك فوزك على واتساب"
+                      className="flex cursor-pointer items-center gap-1.5 rounded-lg border border-edge px-3 py-1.5 text-[11px] font-black text-limex transition-all hover:-translate-y-0.5 hover:border-limex/60 hover:bg-limex/10 active:scale-95"
+                    >
+                      <WhatsAppIcon size={14} /> شارِك فوزك
+                    </a>
                     <div className="text-[10px] text-dim">وريه للكاشير</div>
                   </div>
                 ) : (
