@@ -240,3 +240,31 @@ export function RefreshIcon({ size, ...p }: P) {
     </svg>
   );
 }
+
+export function MegaphoneIcon({ size, ...p }: P) {
+  return (
+    <svg {...base(size)} {...p}>
+      <path d="m3 11 18-5v12L3 14v-3z" />
+      <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+    </svg>
+  );
+}
+
+export function DownloadIcon({ size, ...p }: P) {
+  return (
+    <svg {...base(size)} {...p}>
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <path d="m7 10 5 5 5-5" />
+      <path d="M12 15V3" />
+    </svg>
+  );
+}
+
+export function LinkIcon({ size, ...p }: P) {
+  return (
+    <svg {...base(size)} {...p}>
+      <path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7" />
+      <path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7" />
+    </svg>
+  );
+}

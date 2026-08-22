@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import {
   DomeCamIcon,
   LogoMark,
+  MegaphoneIcon,
   MouseIcon,
   PhoneIcon,
   RouterIcon,
@@ -16,7 +17,15 @@ const PHONE = "01012345678";
 const WHATSAPP = "201012345678";
 
 /* ---------------- الهيدر ---------------- */
-export function Header({ muted, onToggleMute }: { muted: boolean; onToggleMute: () => void }) {
+export function Header({
+  muted,
+  onToggleMute,
+  onOpenShare,
+}: {
+  muted: boolean;
+  onToggleMute: () => void;
+  onOpenShare: () => void;
+}) {
   const links = [
     { href: "#game", label: "اللعبة" },
     { href: "#coupons", label: "الجوايز" },
@@ -50,6 +59,14 @@ export function Header({ muted, onToggleMute }: { muted: boolean; onToggleMute: 
         </nav>
 
         <div className="flex items-center gap-2">
+          <button
+            onClick={onOpenShare}
+            className="flex cursor-pointer items-center gap-2 rounded-lg border-2 border-limex/60 px-3 py-2 text-sm font-black text-limex transition hover:-translate-y-0.5 hover:bg-limex hover:text-ink"
+            title="QR كود ورابط لنشر اللعبة لعملاءك"
+          >
+            <MegaphoneIcon size={17} />
+            <span className="hidden sm:inline">انشر اللعبة</span>
+          </button>
           <button
             onClick={onToggleMute}
             className="cursor-pointer rounded-lg border border-edge p-2 text-dim transition hover:border-cyanx hover:text-cyanx"

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Game from "./game/Game";
 import { CouponsSection, PrizeLadder } from "./components/Prizes";
 import { AmbientBackground, CtaStrip, Footer, Header, HowToClaim, Services, Ticker } from "./components/Sections";
+import { ShareModal } from "./components/ShareModal";
 import { TOTAL_LEVELS, makeCouponCode } from "./data/prizes";
 
 const LS_COUPONS = "vtech_coupons";
@@ -29,6 +30,7 @@ export default function App() {
   const [best, setBest] = useState<number>(() => loadJSON(LS_BEST, 0));
   const [muted, setMuted] = useState<boolean>(() => loadJSON(LS_MUTED, false));
   const [currentLevel, setCurrentLevel] = useState(0);
+  const [shareOpen, setShareOpen] = useState(false);
 
   const couponsRef = useRef(coupons);
   useEffect(() => {
@@ -68,7 +70,7 @@ export default function App() {
       <AmbientBackground />
 
       <div className="relative z-10">
-        <Header muted={muted} onToggleMute={toggleMute} />
+        <Header muted={muted} onToggleMute={toggleMute} onOpenShare={() => setShareOpen(true)} />
         <Ticker />
 
         <main className="mx-auto max-w-6xl px-4">
@@ -139,6 +141,8 @@ export default function App() {
 
         <Footer />
       </div>
+
+      <ShareModal open={shareOpen} onClose={() => setShareOpen(false)} />
     </div>
   );
 }
